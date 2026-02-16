@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | GroundTruth Systems</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <strong>GroundTruth Systems</strong>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="nav-cta" href="contact.html">Get a Quote</a>
+    </div>
+  </header>
+
+  <section class="hero" style="padding:4rem 1.5rem;">
+    <div class="content">
+      <p class="section-title" style="color:rgba(255,255,255,0.7);">Contact</p>
+      <h1>Tell us about your site.</h1>
+      <p>Share the project details and we will confirm feasibility, provide sample deliverables, and build a capture plan.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-inner" style="display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));">
+      <div class="card">
+        <h2>Direct contact</h2>
+        <p>Email: <a href="mailto:ops@groundtruthsystems.com">ops@groundtruthsystems.com</a></p>
+        <p>Phone: <a href="tel:+15555550123">(555) 555-0123</a></p>
+        <p>Hours: Monday–Friday, 8a–6p ET</p>
+        <p>Florida HQ • Deployable across the Southeast</p>
+      </div>
+      <form class="form" name="contact" netlify>
+        <input type="hidden" name="form-name" value="contact" />
+        <input type="text" name="name" placeholder="Name" required />
+        <input type="text" name="company" placeholder="Company" required />
+        <input type="text" name="role" placeholder="Role" />
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="tel" name="phone" placeholder="Phone" />
+        <input type="text" name="location" placeholder="Location (city, state)" />
+        <select name="project_type" required>
+          <option value="">Project type</option>
+          <option>Construction</option>
+          <option>Development</option>
+          <option>Property / HOA</option>
+          <option>Agriculture</option>
+          <option>Infrastructure</option>
+          <option>Other</option>
+        </select>
+        <select name="timeline" required>
+          <option value="">Timeline</option>
+          <option>ASAP</option>
+          <option>&lt; 30 days</option>
+          <option>30–90 days</option>
+          <option>Planning phase</option>
+        </select>
+        <textarea name="notes" rows="5" placeholder="Notes / requirements"></textarea>
+        <button class="btn-primary" type="submit" style="border:none;cursor:pointer;">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© <span id="year"></span> GroundTruth Systems.</p>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
