@@ -202,6 +202,51 @@ section {
   margin-top: 2rem;
 }
 
+.field-proof {
+  background: #0c1426;
+  color: #fff;
+  padding: 4rem 1.5rem;
+}
+
+.field-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  align-items: center;
+}
+
+.field-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+.field-gallery img {
+  width: 100%;
+  border-radius: 1rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  object-fit: cover;
+}
+
+.highlight-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.highlight-list li {
+  background: rgba(255,255,255,0.08);
+  border-radius: 0.8rem;
+  padding: 0.8rem 1rem;
+}
+
+.highlight-list strong {
+  font-size: 1.1rem;
+  color: #fff;
+}
+
 .why {
   background: #0a1d2e;
   color: #fff;
@@ -372,6 +417,14 @@ table.service-table th {
   .buttons {
     flex-direction: column;
   }
+
+  .field-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .field-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
 }
 
 
@@ -403,4 +456,131 @@ table.service-table th {
     padding: 1.5rem;
     border: 1px solid rgba(255,255,255,0.08);
   }
+}
+
+.project-hero {
+  padding: 6rem 1.5rem;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: #fff;
+}
+
+.project-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(4,12,24,0.75), rgba(10,29,46,0.9));
+}
+
+.project-hero-content {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.stat-grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.stat-grid div {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 1rem;
+  padding: 1rem 1.2rem;
+}
+
+.stat-grid h3 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  align-items: start;
+}
+
+.mission-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1.2rem;
+  padding: 2rem;
+}
+
+.mission-card dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.4rem 1rem;
+}
+
+.mission-card dt {
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.mission-card dd {
+  margin: 0;
+}
+
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-gallery figure {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1.2rem;
+  overflow: hidden;
+  margin: 0;
+}
+
+.project-gallery img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+.project-gallery figcaption {
+  padding: 1rem 1.2rem;
+  color: var(--text-muted);
+}
+
+.video-block {
+  background: #060f1f;
+  color: #fff;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.video-frame {
+  background: rgba(255,255,255,0.05);
+  border-radius: 1.2rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 1.2rem;
+}
+
+.video-frame video {
+  width: 100%;
+  border-radius: 0.8rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+nav a.active {
+  color: var(--accent);
 }
