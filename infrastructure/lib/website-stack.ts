@@ -178,6 +178,8 @@ export class GroundTruthWebsiteStack extends Stack {
       prune: true,
       retainOnDelete: production,
       cacheControl: [s3deploy.CacheControl.maxAge(Duration.days(365)), s3deploy.CacheControl.immutable()],
+      distribution,
+      distributionPaths: ['/assets/*'],
     });
     new s3deploy.BucketDeployment(this, 'DocumentDeployment', {
       destinationBucket: bucket,
