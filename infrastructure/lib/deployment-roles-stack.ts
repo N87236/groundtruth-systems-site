@@ -53,10 +53,7 @@ export class GroundTruthDeploymentRolesStack extends Stack {
     const devRole = createRole(
       'DevDeployRole',
       'GroundTruthDevDeployRole',
-      [
-        `repo:${repository}:ref:refs/heads/main`,
-        `repo:${repository}:ref:refs/heads/migration/aws-platform`,
-      ],
+      `repo:${repository}:environment:development`,
     );
     const prodRole = createRole(
       'ProdDeployRole',
