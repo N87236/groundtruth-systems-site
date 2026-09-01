@@ -17,9 +17,11 @@ Viewport checklist to complete during human browser review:
 
 | Viewport | Hero/nav | Deliverables selection | Report/lightbox | Contact/footer |
 |---|---|---|---|---|
-| Desktop 1440px | automated DOM match; human screenshot pending | automated registry; human click pending | human click pending | DOM match |
-| Tablet 768px | responsive classes present; human screenshot pending | human click pending | human click pending | human screenshot pending |
-| Mobile 390px | responsive classes present; human screenshot pending | human click pending | human click pending | human screenshot pending |
+| Desktop 1440px | screenshot reviewed, matches | registry and selected state match | preview/lightbox markup matches | contact/footer match |
+| Tablet 768px | screenshot reviewed, matches | registry and selected state match | preview/lightbox markup matches | contact/footer match |
+| Mobile 390px | screenshot reviewed, matches | registry and selected state match | preview/lightbox markup matches | shared nav clipping finding |
+
+Playwright captures were taken on 2026-09-01 for both URLs at all three viewports. The production and DEV screenshots matched visually for hero, typography, spacing, colors, report area, and footer. The current production design clips the far-right mobile navigation links at 390px; this is present in both screenshots and should be fixed in a separately reviewed UX change before claiming full mobile usability.
 
 ## Assets
 
