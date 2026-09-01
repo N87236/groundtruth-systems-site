@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1100" width="800" height="1100">
+  <defs>
+    <linearGradient id="cp-header" x1="0" y1="0" x2="800" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#111111"/>
+      <stop offset="100%" stop-color="#1a2e1a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="1100" fill="#ffffff"/>
+
+  <!-- Header -->
+  <rect width="800" height="90" fill="url(#cp-header)"/>
+  <rect x="24" y="24" width="36" height="36" rx="2" fill="#ffffff"/>
+  <text x="42" y="49" font-family="Arial,sans-serif" font-size="22" font-weight="bold" fill="#111" text-anchor="middle">GT</text>
+  <text x="76" y="40" font-family="Arial,sans-serif" font-size="15" font-weight="600" fill="#ffffff" letter-spacing="0.5">GroundTruth Systems</text>
+  <text x="76" y="58" font-family="Arial,sans-serif" font-size="9" fill="#34d399" letter-spacing="2">CONSTRUCTION PROGRESS REPORT</text>
+  <text x="776" y="40" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8" text-anchor="end">REPORT ID: GTS-PROG-2026-0389</text>
+  <text x="776" y="55" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8" text-anchor="end">CLASSIFICATION: CLIENT CONFIDENTIAL</text>
+
+  <!-- Report Title -->
+  <text x="40" y="128" font-family="Arial,sans-serif" font-size="22" font-weight="bold" fill="#1f2937">Construction Progress Intelligence Report</text>
+  <text x="40" y="150" font-family="Arial,sans-serif" font-size="11" fill="#6b7280">Period: March 15 – April 12, 2026 | Project: Lakewood Mixed-Use Development | Phase 2</text>
+
+  <!-- Progress bar -->
+  <rect x="40" y="166" width="720" height="28" rx="4" fill="#f9fafb" stroke="#e5e7eb"/>
+  <text x="56" y="184" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#1f2937">OVERALL PROGRESS</text>
+  <rect x="220" y="173" width="400" height="14" rx="3" fill="#e5e7eb"/>
+  <rect x="220" y="173" width="268" height="14" rx="3" fill="#059669"/>
+  <text x="500" y="184" font-family="Arial,sans-serif" font-size="10" font-weight="bold" fill="#059669">67%</text>
+  <text x="640" y="184" font-family="Arial,sans-serif" font-size="9" fill="#6b7280">Target: 72%</text>
+  <rect x="700" y="173" width="48" height="14" rx="3" fill="#fef3c7"/>
+  <text x="724" y="184" font-family="Arial,sans-serif" font-size="8" fill="#92400e" text-anchor="middle">-5%</text>
+
+  <!-- Before / After Comparison -->
+  <text x="40" y="224" font-family="Arial,sans-serif" font-size="13" font-weight="600" fill="#1f2937">Temporal Comparison</text>
+
+  <!-- Before panel -->
+  <rect x="40" y="236" width="350" height="240" rx="8" fill="#f3f4f6" stroke="#d1d5db"/>
+  <rect x="40" y="236" width="350" height="28" rx="8" fill="#e5e7eb"/>
+  <rect x="40" y="252" width="350" height="12" fill="#e5e7eb"/>
+  <text x="215" y="254" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#374151" text-anchor="middle">PREVIOUS CAPTURE — March 15, 2026</text>
+
+  <!-- Before site illustration -->
+  <rect x="60" y="280" width="310" height="176" rx="4" fill="#e8ece8"/>
+  <rect x="80" y="300" width="120" height="60" rx="2" fill="#d1d5db" stroke="#9ca3af"/>
+  <text x="140" y="335" font-family="Arial,sans-serif" font-size="9" fill="#6b7280" text-anchor="middle">Foundation</text>
+  <rect x="220" y="320" width="80" height="40" rx="2" fill="#d1d5db" stroke="#9ca3af"/>
+  <text x="260" y="345" font-family="Arial,sans-serif" font-size="9" fill="#6b7280" text-anchor="middle">Staging</text>
+  <rect x="100" y="390" width="200" height="50" rx="2" fill="#d6d3d1" stroke="#a8a29e" stroke-dasharray="4,2"/>
+  <text x="200" y="420" font-family="Arial,sans-serif" font-size="9" fill="#78716c" text-anchor="middle">Planned Structure</text>
+
+  <!-- After panel -->
+  <rect x="410" y="236" width="350" height="240" rx="8" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <rect x="410" y="236" width="350" height="28" rx="8" fill="#dcfce7"/>
+  <rect x="410" y="252" width="350" height="12" fill="#dcfce7"/>
+  <text x="585" y="254" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#166534" text-anchor="middle">CURRENT CAPTURE — April 12, 2026</text>
+
+  <!-- After site illustration -->
+  <rect x="430" y="280" width="310" height="176" rx="4" fill="#e8ece8"/>
+  <rect x="450" y="300" width="120" height="60" rx="2" fill="#86efac" stroke="#22c55e"/>
+  <text x="510" y="327" font-family="Arial,sans-serif" font-size="9" fill="#166534" text-anchor="middle">Foundation</text>
+  <text x="510" y="340" font-family="Arial,sans-serif" font-size="8" fill="#166534" text-anchor="middle">COMPLETE ✓</text>
+  <rect x="590" y="320" width="80" height="40" rx="2" fill="#86efac" stroke="#22c55e"/>
+  <text x="630" y="345" font-family="Arial,sans-serif" font-size="9" fill="#166534" text-anchor="middle">Framing</text>
+  <rect x="470" y="390" width="200" height="50" rx="2" fill="#fde68a" stroke="#f59e0b"/>
+  <text x="570" y="412" font-family="Arial,sans-serif" font-size="9" fill="#92400e" text-anchor="middle">Structure — In Progress</text>
+  <text x="570" y="426" font-family="Arial,sans-serif" font-size="8" fill="#92400e" text-anchor="middle">40% framed</text>
+
+  <!-- Progress highlight zones -->
+  <rect x="448" y="298" width="126" height="64" fill="none" stroke="#22c55e" stroke-width="2" stroke-dasharray="4,2" rx="4"/>
+  <rect x="468" y="388" width="204" height="54" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4,2" rx="4"/>
+
+  <!-- Timeline -->
+  <rect x="40" y="496" width="720" height="60" rx="8" fill="#f9fafb" stroke="#e5e7eb"/>
+  <text x="56" y="518" font-family="Arial,sans-serif" font-size="11" font-weight="600" fill="#1f2937">PROJECT TIMELINE</text>
+
+  <line x1="80" y1="538" x2="740" y2="538" stroke="#d1d5db" stroke-width="2"/>
+  <circle cx="80" cy="538" r="5" fill="#059669"/><text x="80" y="530" font-family="Arial,sans-serif" font-size="7" fill="#6b7280" text-anchor="middle">Jan 2026</text>
+  <circle cx="245" cy="538" r="5" fill="#059669"/><text x="245" y="530" font-family="Arial,sans-serif" font-size="7" fill="#6b7280" text-anchor="middle">Phase 1</text>
+  <circle cx="410" cy="538" r="7" fill="#f59e0b" stroke="#f59e0b" stroke-width="2"/><text x="410" y="526" font-family="Arial,sans-serif" font-size="8" fill="#92400e" text-anchor="middle" font-weight="bold">NOW</text>
+  <circle cx="575" cy="538" r="5" fill="#d1d5db"/><text x="575" y="530" font-family="Arial,sans-serif" font-size="7" fill="#6b7280" text-anchor="middle">Phase 3</text>
+  <circle cx="740" cy="538" r="5" fill="#d1d5db"/><text x="740" y="530" font-family="Arial,sans-serif" font-size="7" fill="#6b7280" text-anchor="middle">Complete</text>
+
+  <!-- Change Summary -->
+  <rect x="40" y="576" width="720" height="170" rx="8" fill="#f9fafb" stroke="#e5e7eb"/>
+  <text x="56" y="602" font-family="Arial,sans-serif" font-size="13" font-weight="600" fill="#1f2937">Change Summary (28-Day Period)</text>
+
+  <!-- Change items -->
+  <rect x="56" y="616" width="220" height="60" rx="6" fill="#ffffff" stroke="#e5e7eb"/>
+  <rect x="56" y="616" width="4" height="60" rx="2" fill="#22c55e"/>
+  <text x="72" y="634" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#22c55e">COMPLETED</text>
+  <text x="72" y="650" font-family="Arial,sans-serif" font-size="9" fill="#374151">Foundation pour — Building A</text>
+  <text x="72" y="664" font-family="Arial,sans-serif" font-size="8" fill="#6b7280">Verified via volumetric analysis</text>
+
+  <rect x="290" y="616" width="220" height="60" rx="6" fill="#ffffff" stroke="#e5e7eb"/>
+  <rect x="290" y="616" width="4" height="60" rx="2" fill="#f59e0b"/>
+  <text x="306" y="634" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#f59e0b">BEHIND SCHEDULE</text>
+  <text x="306" y="650" font-family="Arial,sans-serif" font-size="9" fill="#374151">Structural framing — 5 days late</text>
+  <text x="306" y="664" font-family="Arial,sans-serif" font-size="8" fill="#6b7280">Weather delays documented</text>
+
+  <rect x="524" y="616" width="220" height="60" rx="6" fill="#ffffff" stroke="#e5e7eb"/>
+  <rect x="524" y="616" width="4" height="60" rx="2" fill="#3b82f6"/>
+  <text x="540" y="634" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#3b82f6">NEW ACTIVITY</text>
+  <text x="540" y="650" font-family="Arial,sans-serif" font-size="9" fill="#374151">MEP rough-in started Bldg A</text>
+  <text x="540" y="664" font-family="Arial,sans-serif" font-size="8" fill="#6b7280">Not in previous capture</text>
+
+  <!-- Recommendations -->
+  <rect x="56" y="690" width="340" height="42" rx="6" fill="#ffffff" stroke="#e5e7eb"/>
+  <rect x="56" y="690" width="4" height="42" rx="2" fill="#dc2626"/>
+  <text x="72" y="708" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#dc2626">RECOMMENDATION</text>
+  <text x="72" y="722" font-family="Arial,sans-serif" font-size="9" fill="#374151">Escalate framing delay to PM — impacts Phase 3 start</text>
+
+  <rect x="410" y="690" width="340" height="42" rx="6" fill="#ffffff" stroke="#e5e7eb"/>
+  <rect x="410" y="690" width="4" height="42" rx="2" fill="#059669"/>
+  <text x="426" y="708" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#059669">POSITIVE</text>
+  <text x="426" y="722" font-family="Arial,sans-serif" font-size="9" fill="#374151">Foundation quality exceeds spec — no rework needed</text>
+
+  <!-- Metrics -->
+  <rect x="40" y="766" width="720" height="80" rx="8" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <text x="56" y="794" font-family="Arial,sans-serif" font-size="11" font-weight="600" fill="#166534">PROGRESS METRICS</text>
+
+  <g transform="translate(56,808)">
+    <text font-family="Arial,sans-serif" font-size="9" fill="#166534">Overall</text>
+    <text x="0" y="16" font-family="Arial,sans-serif" font-size="14" font-weight="bold" fill="#166534">67%</text>
+  </g>
+  <g transform="translate(180,808)">
+    <text font-family="Arial,sans-serif" font-size="9" fill="#166534">Period Change</text>
+    <text x="0" y="16" font-family="Arial,sans-serif" font-size="14" font-weight="bold" fill="#166534">+12%</text>
+  </g>
+  <g transform="translate(340,808)">
+    <text font-family="Arial,sans-serif" font-size="9" fill="#166534">Schedule Variance</text>
+    <text x="0" y="16" font-family="Arial,sans-serif" font-size="14" font-weight="bold" fill="#b45309">-5 days</text>
+  </g>
+  <g transform="translate(520,808)">
+    <text font-family="Arial,sans-serif" font-size="9" fill="#166534">Budget Impact</text>
+    <text x="0" y="16" font-family="Arial,sans-serif" font-size="14" font-weight="bold" fill="#166534">Within 3%</text>
+  </g>
+
+  <!-- Footer -->
+  <line x1="40" y1="870" x2="760" y2="870" stroke="#e5e7eb"/>
+  <text x="40" y="890" font-family="Arial,sans-serif" font-size="8" fill="#9ca3af">© GroundTruth Systems | Confidential Client Deliverable | Do Not Distribute</text>
+  <text x="760" y="890" font-family="Arial,sans-serif" font-size="8" fill="#9ca3af" text-anchor="end">Page 1 of 3</text>
+
+  <text x="400" y="1060" font-family="Arial,sans-serif" font-size="10" fill="#d1d5db" text-anchor="middle" letter-spacing="4">GROUNDTRUTH SYSTEMS — TRUTH, DELIVERED WITH PRECISION</text>
+</svg>

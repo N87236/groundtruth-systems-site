@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GroundTruth Systems | Operational Intelligence</title>
+  <meta name="description" content="Verified aerial intelligence, digital twins, and recurring site visibility for infrastructure, construction, and agricultural operations.">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="canonical" href="https://groundtruth-systems.com/">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/images/hero.jpg" as="image" fetchpriority="high">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="GroundTruth Systems | Operational Intelligence">
+  <meta property="og:description" content="Operational intelligence for the physical world.">
+  <meta property="og:url" content="https://groundtruth-systems.com/">
+  <meta property="og:image" content="https://groundtruth-systems.com/assets/images/hero.jpg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+
+    :root {
+      --font-sans: 'Inter', system_ui, sans-serif;
+    }
+
+    body {
+      font-family: 'Inter', system_ui, sans-serif;
+    }
+
+    .heading {
+      font-family: 'Space Grotesk', 'Inter', sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.025em;
+    }
+
+    .section-header {
+      font-size: 2.25rem;
+      line-height: 1.1;
+      font-weight: 600;
+      letter-spacing: -0.04em;
+    }
+
+    .nav-active {
+      color: #e2e8f0;
+      border-bottom: 1px solid #64748b;
+    }
+
+    .map-grid {
+      background-image:
+        linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .deliverable-card {
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+
+    .deliverable-card:hover {
+      transform: translateY(-2px);
+      border-color: #475569;
+    }
+
+    .deliverable-card.active {
+      border-color: #34d399;
+      background: #111b11;
+      box-shadow: 0 0 0 1px rgba(52,211,153,0.2), 0 8px 24px rgba(0,0,0,0.3);
+      transform: translateY(-2px);
+    }
+
+    .deliverable-card.active .card-icon {
+      color: #34d399;
+    }
+
+    .deliverable-card:focus-visible {
+      outline: 2px solid #34d399;
+      outline-offset: 2px;
+    }
+
+    .division-card {
+      transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+    }
+
+    .hero-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('assets/images/hero.jpg');
+      background-size: cover;
+      background-position: center 40%;
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(10,10,10,0.92) 0%,
+        rgba(10,10,10,0.82) 40%,
+        rgba(10,20,15,0.78) 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-grid-overlay {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(52,211,153,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(52,211,153,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      z-index: 2;
+    }
+
+    .hero-vignette {
+      position: absolute;
+      inset: 0;
+      box-shadow: inset 0 0 200px 40px rgba(10,10,10,0.5);
+      z-index: 2;
+    }
+
+    .hero-accent {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      background: linear-gradient(to top, rgba(10,10,10,1) 0%, transparent 100%);
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .pulse-dot {
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    .report-preview-area {
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .report-preview-area.fade-out {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+
+    .report-preview-area.fade-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .report-frame {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow:
+        0 4px 6px rgba(0,0,0,0.2),
+        0 20px 60px rgba(0,0,0,0.4),
+        0 0 0 1px rgba(255,255,255,0.05);
+      overflow: hidden;
+    }
+
+    .report-frame img,
+    .report-frame object {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      padding: 24px;
+    }
+
+    .lightbox-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .lightbox-content {
+      max-width: 1200px;
+      max-height: 90vh;
+      width: 100%;
+      overflow: auto;
+      border-radius: 12px;
+      background: #fff;
+      position: relative;
+    }
+
+    .lightbox-content img,
+    .lightbox-content object {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1001;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .honeypot-field {
+      position: absolute;
+      left: -10000px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body class="bg-[#0a0a0a] text-slate-200">
+  <!-- Navigation -->
+  <nav class="border-b border-slate-800 bg-[#0a0a0a]/95 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-screen-2xl mx-auto px-8">
+      <div class="flex justify-between items-center h-20">
+        <div class="flex items-center gap-x-3">
+          <div class="flex items-center gap-x-2">
+            <div class="w-8 h-8 bg-white flex items-center justify-center">
+              <span class="text-[#0a0a0a] font-semibold text-xl tracking-tighter">GT</span>
+            </div>
+            <span class="font-semibold text-2xl tracking-tighter">GroundTruth</span>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-x-8 text-sm">
+          <a href="#outputs" class="hover:text-white transition-colors">Outputs</a>
+          <a href="#divisions" class="hover:text-white transition-colors">Divisions</a>
+          <a href="#process" class="hover:text-white transition-colors">Process</a>
+          <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <div class="hero-section">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-grid-overlay"></div>
+    <div class="hero-vignette"></div>
+    <div class="hero-accent"></div>
+    <div class="hero-content max-w-screen-2xl mx-auto px-8 pt-20 pb-24">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-full bg-slate-900/80 border border-slate-800 text-xs tracking-[0.5px] mb-6 backdrop-blur-sm">
+          <div class="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
+          <span class="text-slate-400">FIELD OPERATIONS • GEOSPATIAL INTELLIGENCE</span>
+        </div>
+
+        <h1 class="text-5xl sm:text-7xl leading-[1.05] tracking-tighter font-semibold heading">
+          Operational Intelligence<br>
+          for the Physical World
+        </h1>
+
+        <p class="mt-6 max-w-lg text-lg sm:text-xl text-slate-400">
+          GroundTruth Systems delivers verified aerial intelligence,
+          digital twins, and recurring site visibility for infrastructure,
+          construction, and agricultural operations.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-10">
+          <a href="#outputs"
+             class="px-8 py-4 bg-white text-[#0a0a0a] font-semibold rounded-xl hover:bg-slate-200 transition-colors">
+            View Operational Outputs
+          </a>
+          <a href="#divisions"
+             class="px-8 py-4 border border-slate-700 hover:bg-slate-900 rounded-xl transition-colors font-medium">
+            Explore Divisions
+          </a>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3 mt-8">
+          <div class="inline-flex items-center gap-x-2 px-4 py-2 rounded-full bg-slate-900/60 border border-slate-700/50 text-sm backdrop-blur-sm">
+            <div class="w-2 h-2 bg-emerald-400 rounded-full pulse-dot"></div>
+            <span class="text-slate-300">FAA Part 107</span>
+          </div>
+          <div class="inline-flex items-center gap-x-2 px-4 py-2 rounded-full bg-slate-900/60 border border-slate-700/50 text-sm backdrop-blur-sm">
+            <div class="w-2 h-2 bg-emerald-400 rounded-full pulse-dot"></div>
+            <span class="text-slate-300">Systems-Engineered</span>
+          </div>
+          <div class="inline-flex items-center gap-x-2 px-4 py-2 rounded-full bg-slate-900/60 border border-slate-700/50 text-sm backdrop-blur-sm">
+            <div class="w-2 h-2 bg-emerald-400 rounded-full pulse-dot"></div>
+            <span class="text-slate-300">Field-Verified</span>
+          </div>
+          <div class="inline-flex items-center gap-x-2 px-4 py-2 rounded-full bg-slate-900/60 border border-slate-700/50 text-sm backdrop-blur-sm">
+            <div class="w-2 h-2 bg-emerald-400 rounded-full pulse-dot"></div>
+            <span class="text-slate-300">Central Florida</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Operational Outputs -->
+  <div id="outputs" class="border-t border-slate-800 bg-[#111111]">
+    <div class="max-w-screen-2xl mx-auto px-8 py-20">
+      <div class="flex flex-col md:flex-row justify-between md:items-end mb-10 gap-4">
+        <div>
+          <span class="text-sm tracking-[1px] text-slate-500">DELIVERABLES</span>
+          <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight mt-1">Operational Outputs, Not Just Imagery</h2>
+        </div>
+        <p class="max-w-md text-slate-400 text-lg">Every deliverable is built for decision-makers, not marketing.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" role="tablist" aria-label="Deliverable categories">
+        <button class="deliverable-card bg-[#1a1a1a] border border-slate-800 p-6 rounded-2xl text-left"
+                role="tab" aria-selected="false" tabindex="-1"
+                data-report="orthomosaic">
+          <div class="flex items-center gap-x-3 mb-4">
+            <i class="fa-solid fa-map text-xl text-slate-400 card-icon"></i>
+            <span class="font-semibold">Orthomosaic Site Map</span>
+          </div>
+          <p class="text-sm text-slate-400">High-resolution, georeferenced orthomosaics with coordinate grids and site boundaries for engineering and planning teams.</p>
+        </button>
+
+        <button class="deliverable-card bg-[#1a1a1a] border border-slate-800 p-6 rounded-2xl text-left"
+                role="tab" aria-selected="false" tabindex="-1"
+                data-report="construction">
+          <div class="flex items-center gap-x-3 mb-4">
+            <i class="fa-solid fa-chart-line text-xl text-slate-400 card-icon"></i>
+            <span class="font-semibold">Construction Progress Comparison</span>
+          </div>
+          <p class="text-sm text-slate-400">Side-by-side temporal analysis showing volumetric change, progress tracking, and deviation from planned schedules.</p>
+        </button>
+
+        <button class="deliverable-card bg-[#1a1a1a] border border-slate-800 p-6 rounded-2xl text-left"
+                role="tab" aria-selected="false" tabindex="-1"
+                data-report="roof">
+          <div class="flex items-center gap-x-3 mb-4">
+            <i class="fa-solid fa-home text-xl text-slate-400 card-icon"></i>
+            <span class="font-semibold">Roof Condition Assessment</span>
+          </div>
+          <p class="text-sm text-slate-400">Detailed roof inspection reports with annotated damage zones, material condition, and maintenance prioritization.</p>
+        </button>
+
+        <button class="deliverable-card bg-[#1a1a1a] border border-slate-800 p-6 rounded-2xl text-left active"
+                role="tab" aria-selected="true" tabindex="0"
+                data-report="cropstress">
+          <div class="flex items-center gap-x-3 mb-4">
+            <i class="fa-solid fa-seedling text-xl text-slate-400 card-icon"></i>
+            <span class="font-semibold">Crop Stress Intelligence Report</span>
+          </div>
+          <p class="text-sm text-slate-400">NDVI and multispectral analysis identifying irrigation issues, disease pressure, and growth anomalies across fields.</p>
+        </button>
+
+        <button class="deliverable-card bg-[#1a1a1a] border border-slate-800 p-6 rounded-2xl text-left"
+                role="tab" aria-selected="false" tabindex="-1"
+                data-report="infrastructure">
+          <div class="flex items-center gap-x-3 mb-4">
+            <i class="fa-solid fa-building text-xl text-slate-400 card-icon"></i>
+            <span class="font-semibold">Infrastructure Condition Monitoring</span>
+          </div>
+          <p class="text-sm text-slate-400">Recurring inspection intelligence for utilities, facilities, and civil infrastructure with change detection.</p>
+        </button>
+
+        <button class="deliverable-card bg-[#1a1a1a] border border-slate-800 p-6 rounded-2xl text-left"
+                role="tab" aria-selected="false" tabindex="-1"
+                data-report="twinview">
+          <div class="flex items-center gap-x-3 mb-4">
+            <i class="fa-solid fa-cube text-xl text-slate-400 card-icon"></i>
+            <span class="font-semibold">TwinView™ Digital Twin</span>
+          </div>
+          <p class="text-sm text-slate-400">Engineering-grade 3D reconstruction with measurement tools, terrain modeling, and progress intelligence.</p>
+        </button>
+      </div>
+
+      <!-- Report Preview Area -->
+      <div class="mt-12" role="tabpanel" aria-label="Selected report preview" id="report-preview-section">
+        <div class="flex flex-col sm:flex-row justify-between sm:items-end mb-6 gap-2">
+          <div>
+            <span class="text-sm tracking-[1px] text-slate-500">SELECTED REPORT PREVIEW</span>
+            <h3 class="text-2xl sm:text-3xl font-semibold tracking-tight mt-1" id="report-title">Crop Stress &amp; Farm Health Intelligence Report</h3>
+          </div>
+          <button class="text-sm text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-2 shrink-0" id="view-larger-btn">
+            <i class="fa-solid fa-expand"></i>
+            View Larger
+          </button>
+        </div>
+
+        <p class="text-slate-400 mb-6 max-w-3xl" id="report-subtitle">
+          A complete agriculture intelligence deliverable built to identify risk, prioritize intervention, and protect yield.
+        </p>
+
+        <div class="report-preview-area fade-in" id="report-preview">
+          <div class="report-frame max-w-5xl mx-auto">
+            <div id="report-image-container">
+              <img src="assets/reports/dragon-fruit-farm-intelligence-report.png"
+                   alt="Dragon Fruit Farm Intelligence Report showing crop health map, issue legend, ROI analysis, and recommended actions."
+                   loading="eager"
+                   id="report-image">
+            </div>
+          </div>
+        </div>
+
+        <p class="text-sm text-slate-500 mt-4 text-center max-w-2xl mx-auto" id="report-caption">
+          A field-level agriculture intelligence report showing crop health mapping, issue prioritization, potential revenue impact, and recommended corrective actions.
+        </p>
+
+        <div class="mt-8 text-center">
+          <a href="#contact" class="inline-flex items-center gap-x-2 px-8 py-4 bg-emerald-600 text-white font-semibold rounded-xl hover:bg-emerald-500 transition-colors" id="report-cta">
+            <i class="fa-solid fa-arrow-right"></i>
+            Request an Agriculture Intelligence Assessment
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Report preview enlarged">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close enlarged view">&times;</button>
+    <div class="lightbox-content" id="lightbox-content"></div>
+  </div>
+
+  <!-- Intelligence Divisions -->
+  <div id="divisions" class="max-w-screen-2xl mx-auto px-8 py-20">
+    <div class="mb-12">
+      <span class="text-sm tracking-[1px] text-slate-500">CAPABILITY LANES</span>
+      <h2 class="text-4xl font-semibold tracking-tight mt-2">Intelligence Divisions</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- TwinView -->
+      <div class="division-card border border-slate-800 hover:border-slate-700 p-8 rounded-2xl bg-[#111]">
+        <div class="flex justify-between items-start">
+          <div>
+            <div class="font-semibold text-2xl">TwinView™</div>
+            <div class="text-emerald-400 text-sm tracking-wider">PHOTOGRAMMETRY &amp; DIGITAL TWINS</div>
+          </div>
+        </div>
+        <p class="mt-6 text-slate-400">High-precision 3D reconstruction, construction progression, and site documentation for engineering and development teams.</p>
+        <div class="mt-6 text-xs text-slate-500">Construction • Engineering • Municipalities • Utilities</div>
+      </div>
+
+      <!-- InfraSight -->
+      <div class="division-card border border-slate-800 hover:border-slate-700 p-8 rounded-2xl bg-[#111]">
+        <div class="flex justify-between items-start">
+          <div>
+            <div class="font-semibold text-2xl">InfraSight™</div>
+            <div class="text-emerald-400 text-sm tracking-wider">INFRASTRUCTURE INTELLIGENCE</div>
+          </div>
+        </div>
+        <p class="mt-6 text-slate-400">Recurring inspection and condition monitoring for roofs, utilities, facilities, and civil infrastructure.</p>
+        <div class="mt-6 text-xs text-slate-500">Municipalities • Insurers • Commercial Property • Industrial</div>
+      </div>
+
+      <!-- CropWatch -->
+      <div class="division-card border border-slate-800 hover:border-slate-700 p-8 rounded-2xl bg-[#111]">
+        <div class="flex justify-between items-start">
+          <div>
+            <div class="font-semibold text-2xl">CropWatch™</div>
+            <div class="text-emerald-400 text-sm tracking-wider">AGRICULTURE INTELLIGENCE</div>
+          </div>
+        </div>
+        <p class="mt-6 text-slate-400">Precision field intelligence including vegetation health, irrigation analysis, and seasonal progression tracking.</p>
+        <div class="mt-6 text-xs text-slate-500">Citrus • Specialty Crops • Nurseries • Sod Farms</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Process -->
+  <div id="process" class="border-t border-slate-800 bg-[#0a0a0a]">
+    <div class="max-w-screen-2xl mx-auto px-8 py-20">
+      <div class="mb-10">
+        <span class="text-sm tracking-[1px] text-slate-500">OPERATIONAL METHOD</span>
+        <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight mt-1">From Mission Definition to Decision-Ready Intelligence</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="border border-slate-800 p-6 rounded-2xl bg-[#111]">
+          <div class="text-emerald-400 text-sm">01</div>
+          <h3 class="font-semibold text-xl mt-3">Define</h3>
+          <p class="text-slate-400 mt-3">Confirm the operating question, site, capture conditions, and decision-ready output.</p>
+        </div>
+        <div class="border border-slate-800 p-6 rounded-2xl bg-[#111]">
+          <div class="text-emerald-400 text-sm">02</div>
+          <h3 class="font-semibold text-xl mt-3">Capture &amp; Analyze</h3>
+          <p class="text-slate-400 mt-3">Execute disciplined field capture and process verified spatial observations.</p>
+        </div>
+        <div class="border border-slate-800 p-6 rounded-2xl bg-[#111]">
+          <div class="text-emerald-400 text-sm">03</div>
+          <h3 class="font-semibold text-xl mt-3">Deliver</h3>
+          <p class="text-slate-400 mt-3">Provide a clear report, prioritized findings, and the evidence needed to act.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div id="contact" class="border-t border-slate-800 bg-[#111111]">
+    <div class="max-w-screen-2xl mx-auto px-8 py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+        <div class="max-w-md">
+        <div class="font-semibold text-3xl tracking-tight">Truth, delivered with precision.</div>
+
+        <div class="mt-8 text-sm">
+          <div class="font-medium">Nate Poole</div>
+          <div class="text-slate-400">Founder &amp; Principal Operator</div>
+        </div>
+
+        <div class="mt-8 space-y-1 text-sm">
+          <div>Greater Orlando, FL</div>
+          <a href="tel:+14076379913" class="hover:text-white transition-colors block">(407) 637-9913</a>
+          <a href="mailto:nate@poole-holdings.com" class="text-emerald-400 hover:text-emerald-300 transition-colors block">nate@poole-holdings.com</a>
+        </div>
+        </div>
+
+        <form id="lead-form" class="grid grid-cols-1 sm:grid-cols-2 gap-4" novalidate>
+          <div>
+            <label for="lead-name" class="block text-sm text-slate-300 mb-2">Name</label>
+            <input id="lead-name" name="name" required maxlength="120" autocomplete="name"
+                   class="w-full rounded-lg border border-slate-700 bg-[#0a0a0a] px-4 py-3 text-white focus:border-emerald-400 focus:outline-none">
+          </div>
+          <div>
+            <label for="lead-company" class="block text-sm text-slate-300 mb-2">Company</label>
+            <input id="lead-company" name="company" maxlength="160" autocomplete="organization"
+                   class="w-full rounded-lg border border-slate-700 bg-[#0a0a0a] px-4 py-3 text-white focus:border-emerald-400 focus:outline-none">
+          </div>
+          <div>
+            <label for="lead-email" class="block text-sm text-slate-300 mb-2">Email</label>
+            <input id="lead-email" name="email" type="email" required maxlength="254" autocomplete="email"
+                   class="w-full rounded-lg border border-slate-700 bg-[#0a0a0a] px-4 py-3 text-white focus:border-emerald-400 focus:outline-none">
+          </div>
+          <div>
+            <label for="lead-phone" class="block text-sm text-slate-300 mb-2">Phone</label>
+            <input id="lead-phone" name="phone" type="tel" maxlength="40" autocomplete="tel"
+                   class="w-full rounded-lg border border-slate-700 bg-[#0a0a0a] px-4 py-3 text-white focus:border-emerald-400 focus:outline-none">
+          </div>
+          <div>
+            <label for="lead-location" class="block text-sm text-slate-300 mb-2">Project location</label>
+            <input id="lead-location" name="location" maxlength="200" autocomplete="address-level2"
+                   class="w-full rounded-lg border border-slate-700 bg-[#0a0a0a] px-4 py-3 text-white focus:border-emerald-400 focus:outline-none">
+          </div>
+          <div>
+            <label for="lead-service" class="block text-sm text-slate-300 mb-2">Service interest</label>
+            <select id="lead-service" name="serviceInterest"
+                    class="w-full rounded-lg border border-slate-700 bg-[#0a0a0a] px-4 py-3 text-white focus:border-emerald-400 focus:outline-none">
+              <option value="">Select a service</option>
+              <option>Orthomosaic Site Mapping</option>
+              <option>Construction Progress</option>
+              <option>Roof Condition</option>
+              <option>Crop Stress Intelligence</option>
+              <option>Infrastructure Monitoring</option>
+              <option>TwinView Digital Twin</option>
+            </select>
+          </div>
+          <div class="sm:col-span-2">
+            <label for="lead-description" class="block text-sm text-slate-300 mb-2">Operational requirements</label>
+            <textarea id="lead-description" name="projectDescription" required maxlength="4000" rows="5"
+                      class="w-full rounded-lg border border-slate-700 bg-[#0a0a0a] px-4 py-3 text-white focus:border-emerald-400 focus:outline-none"></textarea>
+          </div>
+          <div>
+            <label for="lead-contact-method" class="block text-sm text-slate-300 mb-2">Preferred contact</label>
+            <select id="lead-contact-method" name="preferredContactMethod"
+                    class="w-full rounded-lg border border-slate-700 bg-[#0a0a0a] px-4 py-3 text-white focus:border-emerald-400 focus:outline-none">
+              <option value="EMAIL">Email</option>
+              <option value="PHONE">Phone</option>
+            </select>
+          </div>
+          <div class="honeypot-field" aria-hidden="true">
+            <label for="lead-website">Website</label>
+            <input id="lead-website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="sm:col-span-2 flex items-center gap-4">
+            <button type="submit" id="lead-submit"
+                    class="px-8 py-4 bg-emerald-600 text-white font-semibold rounded-xl hover:bg-emerald-500 disabled:opacity-50 transition-colors">
+              Request an Operational Assessment
+            </button>
+            <p id="lead-status" class="text-sm text-slate-400" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer class="border-t border-slate-800 py-8">
+    <div class="max-w-screen-2xl mx-auto px-8 text-xs text-slate-500">
+      © GroundTruth Systems. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var reports = {
+        orthomosaic: {
+          title: 'Orthomosaic Site Intelligence Report',
+          subtitle: 'A geo-referenced aerial map deliverable showing site boundaries, access routes, visible conditions, and annotated operational observations.',
+          caption: 'A geo-referenced aerial map deliverable showing site boundaries, access routes, visible conditions, and annotated operational observations.',
+          image: 'assets/reports/orthomosaic-site-intelligence-report.svg',
+          alt: 'Orthomosaic Site Intelligence Report showing site map with zone labels, observation pins, scale bar, and operational summary.',
+          cta: 'Schedule a Site Mapping Assessment',
+          type: 'svg'
+        },
+        construction: {
+          title: 'Construction Progress Intelligence Report',
+          subtitle: 'A recurring site capture report comparing previous and current conditions to verify progress, document delays, and brief stakeholders.',
+          caption: 'A recurring site capture report comparing previous and current conditions to verify progress, document delays, and brief stakeholders.',
+          image: 'assets/reports/construction-progress-intelligence-report.svg',
+          alt: 'Construction Progress Intelligence Report showing before/after comparison, timeline, change summary, and progress metrics.',
+          cta: 'Request a Construction Progress Assessment',
+          type: 'svg'
+        },
+        roof: {
+          title: 'Roof Inspection & Condition Report',
+          subtitle: 'An aerial inspection report documenting roof condition, drainage concerns, visible anomalies, and areas requiring closer review.',
+          caption: 'An aerial inspection report documenting roof condition, drainage concerns, visible anomalies, and areas requiring closer review.',
+          image: 'assets/reports/roof-inspection-condition-report.svg',
+          alt: 'Roof Inspection and Condition Report showing aerial roof diagram, issue markers, drainage arrows, severity labels, and cost estimates.',
+          cta: 'Request a Roof Condition Assessment',
+          type: 'svg'
+        },
+        cropstress: {
+          title: 'Crop Stress & Farm Health Intelligence Report',
+          subtitle: 'A complete agriculture intelligence deliverable built to identify risk, prioritize intervention, and protect yield.',
+          caption: 'A field-level agriculture intelligence report showing crop health mapping, issue prioritization, potential revenue impact, and recommended corrective actions.',
+          image: 'assets/reports/dragon-fruit-farm-intelligence-report.png',
+          alt: 'Dragon Fruit Farm Intelligence Report showing crop health map, issue legend, ROI analysis, and recommended actions.',
+          cta: 'Request an Agriculture Intelligence Assessment',
+          type: 'img'
+        },
+        infrastructure: {
+          title: 'Infrastructure Condition Intelligence Report',
+          subtitle: 'A recurring monitoring report for drainage, retention areas, corridors, facilities, and infrastructure assets.',
+          caption: 'A recurring monitoring report for drainage, retention areas, corridors, facilities, and infrastructure assets.',
+          image: 'assets/reports/infrastructure-condition-intelligence-report.svg',
+          alt: 'Infrastructure Condition Intelligence Report showing retention pond map, asset status, erosion markers, condition trend, and recommendations.',
+          cta: 'Request an Infrastructure Monitoring Assessment',
+          type: 'svg'
+        },
+        twinview: {
+          title: 'TwinView™ Digital Twin Report',
+          subtitle: 'A spatial reconstruction deliverable showing site geometry, terrain, structures, measurements, and visual documentation.',
+          caption: 'A spatial reconstruction deliverable showing site geometry, terrain, structures, measurements, and visual documentation.',
+          image: 'assets/reports/twinview-digital-twin-report.svg',
+          alt: 'TwinView Digital Twin Report showing 3D wireframe model, measurement lines, point cloud data, coordinate axes, and reconstruction summary.',
+          cta: 'Request a Digital Twin Assessment',
+          type: 'svg'
+        }
+      };
+
+      var cards = document.querySelectorAll('.deliverable-card');
+      var titleEl = document.getElementById('report-title');
+      var subtitleEl = document.getElementById('report-subtitle');
+      var captionEl = document.getElementById('report-caption');
+      var previewArea = document.getElementById('report-preview');
+      var imageContainer = document.getElementById('report-image-container');
+      var ctaEl = document.getElementById('report-cta');
+      var viewLargerBtn = document.getElementById('view-larger-btn');
+      var lightbox = document.getElementById('lightbox');
+      var lightboxClose = document.getElementById('lightbox-close');
+      var lightboxContent = document.getElementById('lightbox-content');
+      var currentReport = 'cropstress';
+
+      function selectReport(reportKey, shouldScroll) {
+        if (!reports[reportKey]) return;
+        var report = reports[reportKey];
+        currentReport = reportKey;
+
+        cards.forEach(function(card) {
+          var isActive = card.getAttribute('data-report') === reportKey;
+          card.classList.toggle('active', isActive);
+          card.setAttribute('aria-selected', isActive ? 'true' : 'false');
+          card.setAttribute('tabindex', isActive ? '0' : '-1');
+        });
+
+        previewArea.classList.remove('fade-in');
+        previewArea.classList.add('fade-out');
+
+        setTimeout(function() {
+          titleEl.textContent = report.title;
+          subtitleEl.textContent = report.subtitle;
+          captionEl.textContent = report.caption;
+          ctaEl.textContent = report.cta;
+
+          if (report.type === 'svg') {
+            imageContainer.innerHTML = '<object data="' + report.image + '" type="image/svg+xml" aria-label="' + report.alt + '" style="display:block;width:100%;height:auto;"></object>';
+          } else {
+            imageContainer.innerHTML = '<img src="' + report.image + '" alt="' + report.alt + '" loading="eager" style="display:block;width:100%;height:auto;">';
+          }
+
+          previewArea.classList.remove('fade-out');
+          previewArea.classList.add('fade-in');
+
+          if (shouldScroll) {
+            setTimeout(function() {
+              var previewSection = document.getElementById('report-preview-section');
+              if (previewSection) {
+                previewSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }, 100);
+          }
+        }, 250);
+      }
+
+      cards.forEach(function(card) {
+        card.addEventListener('click', function() {
+          selectReport(card.getAttribute('data-report'), true);
+        });
+
+        card.addEventListener('keydown', function(e) {
+          var cardArray = Array.from(cards);
+          var idx = cardArray.indexOf(card);
+          var next = -1;
+
+          if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+            e.preventDefault();
+            next = (idx + 1) % cardArray.length;
+          } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+            e.preventDefault();
+            next = (idx - 1 + cardArray.length) % cardArray.length;
+          } else if (e.key === 'Home') {
+            e.preventDefault();
+            next = 0;
+          } else if (e.key === 'End') {
+            e.preventDefault();
+            next = cardArray.length - 1;
+          }
+
+          if (next >= 0) {
+            cardArray[next].focus();
+            selectReport(cardArray[next].getAttribute('data-report'), true);
+          }
+        });
+      });
+
+      function openLightbox() {
+        var report = reports[currentReport];
+        if (!report) return;
+
+        if (report.type === 'svg') {
+          lightboxContent.innerHTML = '<object data="' + report.image + '" type="image/svg+xml" aria-label="' + report.alt + '" style="display:block;width:100%;height:auto;"></object>';
+        } else {
+          lightboxContent.innerHTML = '<img src="' + report.image + '" alt="' + report.alt + '" style="display:block;width:100%;height:auto;">';
+        }
+
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        lightboxClose.focus();
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+        viewLargerBtn.focus();
+      }
+
+      viewLargerBtn.addEventListener('click', openLightbox);
+      lightboxClose.addEventListener('click', closeLightbox);
+
+      lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+          closeLightbox();
+        }
+      });
+    })();
+  </script>
+
+  <script>
+    (function() {
+      var form = document.getElementById('lead-form');
+      var submit = document.getElementById('lead-submit');
+      var status = document.getElementById('lead-status');
+
+      form.addEventListener('submit', async function(event) {
+        event.preventDefault();
+        status.textContent = '';
+        if (!form.reportValidity()) return;
+        submit.disabled = true;
+
+        var data = Object.fromEntries(new FormData(form).entries());
+        data.sourcePage = window.location.pathname;
+        data.referrer = document.referrer;
+
+        try {
+          var response = await fetch('/api/leads', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+          var result = await response.json().catch(function() { return {}; });
+          if (!response.ok) throw new Error(result.message || 'Unable to send request.');
+          form.reset();
+          status.textContent = 'Request received. GroundTruth Systems will review your operational requirements and follow up shortly.';
+        } catch (error) {
+          status.textContent = error instanceof Error ? error.message : 'Unable to send request. Please call or email GroundTruth Systems.';
+        } finally {
+          submit.disabled = false;
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>

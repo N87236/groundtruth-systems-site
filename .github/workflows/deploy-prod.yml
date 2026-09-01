@@ -1,0 +1,48 @@
+name: Deploy PROD
+
+on:
+  workflow_dispatch:
+    inputs:
+      certificate_arn:
+        description: Reviewed us-east-1 ACM certificate ARN
+        required: true
+        type: string
+      hosted_zone_id:
+        description: Reviewed Route 53 hosted zone ID
+        required: true
+        type: string
+
+concurrency:
+  group: groundtruth-production
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  deploy:
+    environment: production
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run validate
+      - uses: aws-actions/configure-aws-credentials@v6.2.4
+        with:
+          role-to-assume: ${{ vars.AWS_PROD_DEPLOY_ROLE_ARN }}
+          aws-region: us-east-1
+          role-session-name: groundtruth-prod-${{ github.run_id }}
+      - name: Deploy reviewed production inputs
+        run: >-
+          npx cdk deploy --all --require-approval never
+          -c environment=prod
+          -c certificateArn="${{ inputs.certificate_arn }}"
+          -c hostedZoneId="${{ inputs.hosted_zone_id }}"
+          --outputs-file cdk-outputs.json
+      - run: node scripts/smoke-test.mjs https://groundtruth-systems.com

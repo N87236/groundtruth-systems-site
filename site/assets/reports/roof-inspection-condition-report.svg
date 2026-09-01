@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1100" width="800" height="1100">
+  <defs>
+    <linearGradient id="ri-header" x1="0" y1="0" x2="800" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#111111"/>
+      <stop offset="100%" stop-color="#1a2e1a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="1100" fill="#ffffff"/>
+
+  <!-- Header -->
+  <rect width="800" height="90" fill="url(#ri-header)"/>
+  <rect x="24" y="24" width="36" height="36" rx="2" fill="#ffffff"/>
+  <text x="42" y="49" font-family="Arial,sans-serif" font-size="22" font-weight="bold" fill="#111" text-anchor="middle">GT</text>
+  <text x="76" y="40" font-family="Arial,sans-serif" font-size="15" font-weight="600" fill="#ffffff" letter-spacing="0.5">GroundTruth Systems</text>
+  <text x="76" y="58" font-family="Arial,sans-serif" font-size="9" fill="#34d399" letter-spacing="2">ROOF INSPECTION REPORT</text>
+  <text x="776" y="40" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8" text-anchor="end">REPORT ID: GTS-ROOF-2026-0156</text>
+  <text x="776" y="55" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8" text-anchor="end">CLASSIFICATION: CLIENT CONFIDENTIAL</text>
+
+  <!-- Report Title -->
+  <text x="40" y="128" font-family="Arial,sans-serif" font-size="22" font-weight="bold" fill="#1f2937">Roof Inspection &amp; Condition Report</text>
+  <text x="40" y="150" font-family="Arial,sans-serif" font-size="11" fill="#6b7280">Inspection Date: 2026-04-08 | Property: Summit Office Park — Bldg C | 38,200 sq ft</text>
+
+  <!-- Condition Rating -->
+  <rect x="40" y="166" width="720" height="30" rx="4" fill="#fef3c7" stroke="#fde68a"/>
+  <text x="56" y="186" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#92400e">OVERALL CONDITION RATING: FAIR (6.2 / 10)</text>
+  <text x="420" y="186" font-family="Arial,sans-serif" font-size="9" fill="#92400e">Estimated Remaining Life: 8–12 years with maintenance</text>
+
+  <!-- Aerial Roof Diagram -->
+  <rect x="40" y="210" width="520" height="380" rx="8" fill="#f5f5f4" stroke="#d6d3d1"/>
+  <text x="50" y="232" font-family="Arial,sans-serif" font-size="11" font-weight="600" fill="#1f2937">AERIAL ROOF OVERVIEW</text>
+
+  <!-- Roof shape -->
+  <polygon points="100,340 280,260 460,280 500,400 480,520 120,540" fill="#e7e5e4" stroke="#a8a29e" stroke-width="1.5"/>
+
+  <!-- Roof sections -->
+  <polygon points="120,350 270,280 360,310 200,400" fill="#bbf7d0" stroke="#22c55e" stroke-width="1" opacity="0.7"/>
+  <text x="220" y="340" font-family="Arial,sans-serif" font-size="9" fill="#166534" text-anchor="middle">Section A</text>
+  <text x="220" y="352" font-family="Arial,sans-serif" font-size="8" fill="#166534" text-anchor="middle">GOOD</text>
+
+  <polygon points="270,280 460,290 440,400 360,310" fill="#fde68a" stroke="#f59e0b" stroke-width="1" opacity="0.7"/>
+  <text x="380" y="340" font-family="Arial,sans-serif" font-size="9" fill="#92400e" text-anchor="middle">Section B</text>
+  <text x="380" y="352" font-family="Arial,sans-serif" font-size="8" fill="#92400e" text-anchor="middle">FAIR</text>
+
+  <polygon points="200,400 360,310 440,400 480,500 400,520" fill="#fde68a" stroke="#f59e0b" stroke-width="1" opacity="0.7"/>
+  <text x="370" y="440" font-family="Arial,sans-serif" font-size="9" fill="#92400e" text-anchor="middle">Section C</text>
+  <text x="370" y="452" font-family="Arial,sans-serif" font-size="8" fill="#92400e" text-anchor="middle">FAIR</text>
+
+  <polygon points="120,350 200,400 400,520 120,540" fill="#fecaca" stroke="#dc2626" stroke-width="1" opacity="0.7"/>
+  <text x="210" y="480" font-family="Arial,sans-serif" font-size="9" fill="#dc2626" text-anchor="middle">Section D</text>
+  <text x="210" y="492" font-family="Arial,sans-serif" font-size="8" fill="#dc2626" text-anchor="middle">POOR</text>
+
+  <!-- Issue markers -->
+  <circle cx="170" cy="460" r="12" fill="#dc2626" opacity="0.9"/>
+  <text x="170" y="464" font-family="Arial,sans-serif" font-size="10" fill="#fff" text-anchor="middle" font-weight="bold">1</text>
+
+  <circle cx="340" cy="380" r="12" fill="#f59e0b" opacity="0.9"/>
+  <text x="340" y="384" font-family="Arial,sans-serif" font-size="10" fill="#fff" text-anchor="middle" font-weight="bold">2</text>
+
+  <circle cx="430" cy="320" r="12" fill="#f59e0b" opacity="0.9"/>
+  <text x="430" y="324" font-family="Arial,sans-serif" font-size="10" fill="#fff" text-anchor="middle" font-weight="bold">3</text>
+
+  <circle cx="260" cy="510" r="12" fill="#dc2626" opacity="0.9"/>
+  <text x="260" y="514" font-family="Arial,sans-serif" font-size="10" fill="#fff" text-anchor="middle" font-weight="bold">4</text>
+
+  <!-- Drainage arrows -->
+  <line x1="300" y1="290" x2="300" y2="350" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="400" y1="310" x2="460" y2="390" stroke="#3b82f6" stroke-width="2"/>
+  <line x1="200" y1="370" x2="150" y2="470" stroke="#3b82f6" stroke-width="2"/>
+  <polygon points="300,355 296,345 304,345" fill="#3b82f6"/>
+  <polygon points="460,395 456,385 464,385" fill="#3b82f6"/>
+  <polygon points="150,475 146,465 154,465" fill="#3b82f6"/>
+  <text x="310" y="345" font-family="Arial,sans-serif" font-size="7" fill="#3b82f6">DRAINAGE</text>
+  <text x="470" y="390" font-family="Arial,sans-serif" font-size="7" fill="#3b82f6">DRAINAGE</text>
+
+  <!-- Right panel: Inspection Summary -->
+  <rect x="580" y="210" width="180" height="380" rx="8" fill="#f9fafb" stroke="#e5e7eb"/>
+  <text x="596" y="236" font-family="Arial,sans-serif" font-size="11" font-weight="600" fill="#1f2937">ISSUE LOG</text>
+  <line x1="596" y1="244" x2="744" y2="244" stroke="#e5e7eb"/>
+
+  <circle cx="604" cy="268" r="6" fill="#dc2626"/>
+  <text x="618" y="264" font-family="Arial,sans-serif" font-size="9" font-weight="600" fill="#dc2626">ISS-01: CRITICAL</text>
+  <text x="618" y="276" font-family="Arial,sans-serif" font-size="8" fill="#6b7280">Membrane breach 4.2 sq ft</text>
+  <text x="618" y="286" font-family="Arial,sans-serif" font-size="8" fill="#6b7280">Section D — active leak risk</text>
+
+  <circle cx="604" cy="312" r="6" fill="#f59e0b"/>
+  <text x="618" y="308" font-family="Arial,sans-serif" font-size="9" font-weight="600" fill="#f59e0b">ISS-02: MODERATE</text>
+  <text x="618" y="320" font-family="Arial,sans-serif" font-size="8" fill="#6b7280">Ponding water 12 sq ft</text>
+  <text x="618" y="330" font-family="Arial,sans-serif" font-size="8" fill="#6b7280">Section C — drainage impaired</text>
+
+  <circle cx="604" cy="356" r="6" fill="#f59e0b"/>
+  <text x="618" y="352" font-family="Arial,sans-serif" font-size="9" font-weight="600" fill="#f59e0b">ISS-03: MODERATE</text>
+  <text x="618" y="364" font-family="Arial,sans-serif" font-size="8" fill="#6b7280">Flashing separation 8 linear ft</text>
+  <text x="618" y="374" font-family="Arial,sans-serif" font-size="8" fill="#6b7280">Section B — edge condition</text>
+
+  <circle cx="604" cy="400" r="6" fill="#dc2626"/>
+  <text x="618" y="396" font-family="Arial,sans-serif" font-size="9" font-weight="600" fill="#dc2626">ISS-04: CRITICAL</text>
+  <text x="618" y="408" font-family="Arial,sans-serif" font-size="8" fill="#6b7280">Structural sag detected</text>
+  <text x="618" y="418" font-family="Arial,sans-serif" font-size="8" fill="#6b7280">Section D — 2.5" deflection</text>
+
+  <line x1="596" y1="436" x2="744" y2="436" stroke="#e5e7eb"/>
+  <text x="596" y="456" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#1f2937">SEVERITY</text>
+  <rect x="596" y="466" width="68" height="20" rx="3" fill="#fecaca"/>
+  <text x="630" y="480" font-family="Arial,sans-serif" font-size="9" fill="#dc2626" text-anchor="middle">2 Critical</text>
+  <rect x="672" y="466" width="68" height="20" rx="3" fill="#fef3c7"/>
+  <text x="706" y="480" font-family="Arial,sans-serif" font-size="9" fill="#92400e" text-anchor="middle">2 Moderate</text>
+
+  <line x1="596" y1="500" x2="744" y2="500" stroke="#e5e7eb"/>
+  <text x="596" y="518" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#1f2937">CONDITION</text>
+  <text x="596" y="536" font-family="Arial,sans-serif" font-size="9" fill="#6b7280">Section A:</text><text x="744" y="536" font-family="Arial,sans-serif" font-size="9" fill="#22c55e" text-anchor="end" font-weight="600">Good</text>
+  <text x="596" y="552" font-family="Arial,sans-serif" font-size="9" fill="#6b7280">Section B:</text><text x="744" y="552" font-family="Arial,sans-serif" font-size="9" fill="#f59e0b" text-anchor="end" font-weight="600">Fair</text>
+  <text x="596" y="568" font-family="Arial,sans-serif" font-size="9" fill="#6b7280">Section C:</text><text x="744" y="568" font-family="Arial,sans-serif" font-size="9" fill="#f59e0b" text-anchor="end" font-weight="600">Fair</text>
+  <text x="596" y="584" font-family="Arial,sans-serif" font-size="9" fill="#6b7280">Section D:</text><text x="744" y="584" font-family="Arial,sans-serif" font-size="9" fill="#dc2626" text-anchor="end" font-weight="600">Poor</text>
+
+  <!-- Recommendations -->
+  <rect x="40" y="610" width="720" height="160" rx="8" fill="#f9fafb" stroke="#e5e7eb"/>
+  <text x="56" y="636" font-family="Arial,sans-serif" font-size="13" font-weight="600" fill="#1f2937">Recommendations &amp; Cost Estimates</text>
+
+  <rect x="56" y="650" width="228" height="100" rx="6" fill="#ffffff" stroke="#e5e7eb"/>
+  <rect x="56" y="650" width="4" height="100" rx="2" fill="#dc2626"/>
+  <text x="72" y="668" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#dc2626">IMMEDIATE ACTION</text>
+  <text x="72" y="684" font-family="Arial,sans-serif" font-size="9" fill="#374151">Patch membrane breach Sec D</text>
+  <text x="72" y="698" font-family="Arial,sans-serif" font-size="9" fill="#374151">Structural assessment Sec D sag</text>
+  <text x="72" y="718" font-family="Arial,sans-serif" font-size="9" fill="#6b7280">Est: $4,200–$6,800</text>
+  <text x="72" y="736" font-family="Arial,sans-serif" font-size="8" fill="#6b7280">Timeframe: 7 days</text>
+
+  <rect x="296" y="650" width="228" height="100" rx="6" fill="#ffffff" stroke="#e5e7eb"/>
+  <rect x="296" y="650" width="4" height="100" rx="2" fill="#f59e0b"/>
+  <text x="312" y="668" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#f59e0b">30-DAY MAINTENANCE</text>
+  <text x="312" y="684" font-family="Arial,sans-serif" font-size="9" fill="#374151">Clear drainage Sec C ponding</text>
+  <text x="312" y="698" font-family="Arial,sans-serif" font-size="9" fill="#374151">Reseal flashing Sec B edge</text>
+  <text x="312" y="718" font-family="Arial,sans-serif" font-size="9" fill="#6b7280">Est: $2,800–$4,100</text>
+  <text x="312" y="736" font-family="Arial,sans-serif" font-size="8" fill="#6b7280">Timeframe: 30 days</text>
+
+  <rect x="536" y="650" width="210" height="100" rx="6" fill="#ffffff" stroke="#e5e7eb"/>
+  <rect x="536" y="650" width="4" height="100" rx="2" fill="#059669"/>
+  <text x="552" y="668" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#059669">PREVENTIVE</text>
+  <text x="552" y="684" font-family="Arial,sans-serif" font-size="9" fill="#374151">Schedule biannual monitoring</text>
+  <text x="552" y="698" font-family="Arial,sans-serif" font-size="9" fill="#374151">Apply reflective coating Sec A</text>
+  <text x="552" y="718" font-family="Arial,sans-serif" font-size="9" fill="#6b7280">Est: $8,500–$12,000</text>
+  <text x="552" y="736" font-family="Arial,sans-serif" font-size="8" fill="#6b7280">Timeframe: 6 months</text>
+
+  <!-- Cost Summary -->
+  <rect x="40" y="790" width="720" height="80" rx="8" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <text x="56" y="818" font-family="Arial,sans-serif" font-size="11" font-weight="600" fill="#166534">COST &amp; RISK SUMMARY</text>
+
+  <g transform="translate(56,832)">
+    <text font-family="Arial,sans-serif" font-size="9" fill="#166534">Immediate Repair</text>
+    <text x="0" y="16" font-family="Arial,sans-serif" font-size="14" font-weight="bold" fill="#166534">$4.2–6.8K</text>
+  </g>
+  <g transform="translate(220,832)">
+    <text font-family="Arial,sans-serif" font-size="9" fill="#166534">Maintenance</text>
+    <text x="0" y="16" font-family="Arial,sans-serif" font-size="14" font-weight="bold" fill="#166534">$2.8–4.1K</text>
+  </g>
+  <g transform="translate(400,832)">
+    <text font-family="Arial,sans-serif" font-size="9" fill="#166534">Replacement Risk</text>
+    <text x="0" y="16" font-family="Arial,sans-serif" font-size="14" font-weight="bold" fill="#b45309">$180–220K</text>
+  </g>
+  <g transform="translate(600,832)">
+    <text font-family="Arial,sans-serif" font-size="9" fill="#166534">Next Inspection</text>
+    <text x="0" y="16" font-family="Arial,sans-serif" font-size="14" font-weight="bold" fill="#166534">Oct 2026</text>
+  </g>
+
+  <!-- Footer -->
+  <line x1="40" y1="895" x2="760" y2="895" stroke="#e5e7eb"/>
+  <text x="40" y="915" font-family="Arial,sans-serif" font-size="8" fill="#9ca3af">© GroundTruth Systems | Confidential Client Deliverable | Do Not Distribute</text>
+  <text x="760" y="915" font-family="Arial,sans-serif" font-size="8" fill="#9ca3af" text-anchor="end">Page 1 of 3</text>
+
+  <text x="400" y="1060" font-family="Arial,sans-serif" font-size="10" fill="#d1d5db" text-anchor="middle" letter-spacing="4">GROUNDTRUTH SYSTEMS — TRUTH, DELIVERED WITH PRECISION</text>
+</svg>

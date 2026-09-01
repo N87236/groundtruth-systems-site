@@ -1,0 +1,207 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1100" width="800" height="1100">
+  <defs>
+    <linearGradient id="ic-header" x1="0" y1="0" x2="800" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#111111"/>
+      <stop offset="100%" stop-color="#1a2e1a"/>
+    </linearGradient>
+    <pattern id="ic-topo" width="50" height="50" patternUnits="userSpaceOnUse">
+      <circle cx="25" cy="25" r="20" fill="none" stroke="#d1d5db" stroke-width="0.3" opacity="0.4"/>
+      <circle cx="25" cy="25" r="12" fill="none" stroke="#d1d5db" stroke-width="0.3" opacity="0.3"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="1100" fill="#ffffff"/>
+
+  <!-- Header -->
+  <rect width="800" height="90" fill="url(#ic-header)"/>
+  <rect x="24" y="24" width="36" height="36" rx="2" fill="#ffffff"/>
+  <text x="42" y="49" font-family="Arial,sans-serif" font-size="22" font-weight="bold" fill="#111" text-anchor="middle">GT</text>
+  <text x="76" y="40" font-family="Arial,sans-serif" font-size="15" font-weight="600" fill="#ffffff" letter-spacing="0.5">GroundTruth Systems</text>
+  <text x="76" y="58" font-family="Arial,sans-serif" font-size="9" fill="#34d399" letter-spacing="2">INFRASTRUCTURE CONDITION REPORT</text>
+  <text x="776" y="40" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8" text-anchor="end">REPORT ID: GTS-INFRA-2026-0267</text>
+  <text x="776" y="55" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8" text-anchor="end">CLASSIFICATION: CLIENT CONFIDENTIAL</text>
+
+  <!-- Report Title -->
+  <text x="40" y="128" font-family="Arial,sans-serif" font-size="22" font-weight="bold" fill="#1f2937">Infrastructure Condition Intelligence Report</text>
+  <text x="40" y="150" font-family="Arial,sans-serif" font-size="11" fill="#6b7280">Monitoring Cycle: Q1 2026 | Facility: South Regional Stormwater System | 186 acres</text>
+
+  <!-- Monitoring Status -->
+  <rect x="40" y="166" width="720" height="28" rx="4" fill="#fff7ed" stroke="#fed7aa"/>
+  <circle cx="56" cy="180" r="4" fill="#f59e0b"/>
+  <text x="68" y="184" font-family="Arial,sans-serif" font-size="9" fill="#92400e">MONITORING ACTIVE — 3 ASSETS REQUIRE ATTENTION</text>
+  <text x="450" y="184" font-family="Arial,sans-serif" font-size="9" fill="#6b7280">Next cycle: Q2 2026 | Frequency: Quarterly</text>
+
+  <!-- Map Area -->
+  <rect x="40" y="206" width="520" height="370" rx="8" fill="#f0f4f0" stroke="#d1d5db"/>
+  <rect x="40" y="206" width="520" height="370" rx="8" fill="url(#ic-topo)"/>
+  <text x="50" y="228" font-family="Arial,sans-serif" font-size="11" font-weight="600" fill="#1f2937">ASSET MAP — STORMWATER INFRASTRUCTURE</text>
+
+  <!-- Retention pond -->
+  <ellipse cx="200" cy="380" rx="100" ry="60" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5" opacity="0.6"/>
+  <text x="200" y="375" font-family="Arial,sans-serif" font-size="10" fill="#1e40af" text-anchor="middle" font-weight="600">RETENTION</text>
+  <text x="200" y="390" font-family="Arial,sans-serif" font-size="10" fill="#1e40af" text-anchor="middle" font-weight="600">POND A</text>
+  <text x="200" y="405" font-family="Arial,sans-serif" font-size="8" fill="#1e40af" text-anchor="middle">AST-RP-001</text>
+
+  <!-- Second pond -->
+  <ellipse cx="420" cy="450" rx="70" ry="45" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5" opacity="0.6"/>
+  <text x="420" y="445" font-family="Arial,sans-serif" font-size="9" fill="#1e40af" text-anchor="middle" font-weight="600">POND B</text>
+  <text x="420" y="460" font-family="Arial,sans-serif" font-size="8" fill="#1e40af" text-anchor="middle">AST-RP-002</text>
+
+  <!-- Corridor / channel -->
+  <path d="M 300 380 Q 350 400 370 440" fill="none" stroke="#3b82f6" stroke-width="8" opacity="0.3"/>
+  <path d="M 300 380 Q 350 400 370 440" fill="none" stroke="#3b82f6" stroke-width="2"/>
+  <text x="345" y="400" font-family="Arial,sans-serif" font-size="7" fill="#1e40af" transform="rotate(35,345,400)">CHANNEL C-01</text>
+
+  <!-- Water flow arrows -->
+  <line x1="120" y1="280" x2="160" y2="340" stroke="#0ea5e9" stroke-width="2"/>
+  <polygon points="160,345 155,335 165,335" fill="#0ea5e9"/>
+  <text x="125" y="300" font-family="Arial,sans-serif" font-size="7" fill="#0ea5e9">INFLOW</text>
+
+  <line x1="280" y1="420" x2="340" y2="450" stroke="#0ea5e9" stroke-width="2"/>
+  <polygon points="345,452 335,448 338,455" fill="#0ea5e9"/>
+
+  <line x1="470" y1="410" x2="520" y2="360" stroke="#0ea5e9" stroke-width="2"/>
+  <polygon points="523,357 515,355 518,365" fill="#0ea5e9"/>
+  <text x="510" y="370" font-family="Arial,sans-serif" font-size="7" fill="#0ea5e9">OUTFLOW</text>
+
+  <!-- Erosion markers -->
+  <g transform="translate(140,340)">
+    <polygon points="0,-12 10,6 -10,6" fill="#dc2626" opacity="0.9"/>
+    <text x="0" y="2" font-family="Arial,sans-serif" font-size="7" fill="#fff" text-anchor="middle" font-weight="bold">E</text>
+  </g>
+  <g transform="translate(260,430)">
+    <polygon points="0,-12 10,6 -10,6" fill="#f59e0b" opacity="0.9"/>
+    <text x="0" y="2" font-family="Arial,sans-serif" font-size="7" fill="#fff" text-anchor="middle" font-weight="bold">E</text>
+  </g>
+  <g transform="translate(480,480)">
+    <polygon points="0,-12 10,6 -10,6" fill="#f59e0b" opacity="0.9"/>
+    <text x="0" y="2" font-family="Arial,sans-serif" font-size="7" fill="#fff" text-anchor="middle" font-weight="bold">E</text>
+  </g>
+
+  <!-- Infrastructure points -->
+  <rect x="80" y="260" width="60" height="30" rx="4" fill="#e5e7eb" stroke="#9ca3af"/>
+  <text x="110" y="280" font-family="Arial,sans-serif" font-size="8" fill="#374151" text-anchor="middle">WEIR-01</text>
+
+  <rect x="460" y="290" width="60" height="30" rx="4" fill="#e5e7eb" stroke="#9ca3af"/>
+  <text x="490" y="310" font-family="Arial,sans-serif" font-size="8" fill="#374151" text-anchor="middle">CTRL-02</text>
+
+  <!-- Right panel: Asset Status -->
+  <rect x="580" y="206" width="180" height="370" rx="8" fill="#f9fafb" stroke="#e5e7eb"/>
+  <text x="596" y="230" font-family="Arial,sans-serif" font-size="11" font-weight="600" fill="#1f2937">ASSET STATUS</text>
+  <line x1="596" y1="238" x2="744" y2="238" stroke="#e5e7eb"/>
+
+  <text x="596" y="258" font-family="Arial,sans-serif" font-size="9" font-weight="600" fill="#1f2937">AST-RP-001</text>
+  <rect x="700" y="248" width="44" height="14" rx="3" fill="#fef3c7"/>
+  <text x="722" y="259" font-family="Arial,sans-serif" font-size="7" fill="#92400e" text-anchor="middle">MONITOR</text>
+  <text x="596" y="272" font-family="Arial,sans-serif" font-size="8" fill="#6b7280">Retention Pond A</text>
+  <text x="596" y="284" font-family="Arial,sans-serif" font-size="8" fill="#6b7280">Capacity: 78% | Erosion NW bank</text>
+
+  <line x1="596" y1="296" x2="744" y2="296" stroke="#f3f4f6"/>
+
+  <text x="596" y="314" font-family="Arial,sans-serif" font-size="9" font-weight="600" fill="#1f2937">AST-RP-002</text>
+  <rect x="700" y="304" width="44" height="14" rx="3" fill="#dcfce7"/>
+  <text x="722" y="315" font-family="Arial,sans-serif" font-size="7" fill="#166534" text-anchor="middle">STABLE</text>
+  <text x="596" y="328" font-family="Arial,sans-serif" font-size="8" fill="#6b7280">Retention Pond B</text>
+  <text x="596" y="340" font-family="Arial,sans-serif" font-size="8" fill="#6b7280">Capacity: 92% | No issues</text>
+
+  <line x1="596" y1="352" x2="744" y2="352" stroke="#f3f4f6"/>
+
+  <text x="596" y="370" font-family="Arial,sans-serif" font-size="9" font-weight="600" fill="#1f2937">AST-CH-C01</text>
+  <rect x="700" y="360" width="44" height="14" rx="3" fill="#fecaca"/>
+  <text x="722" y="371" font-family="Arial,sans-serif" font-size="7" fill="#dc2626" text-anchor="middle">ACTION</text>
+  <text x="596" y="384" font-family="Arial,sans-serif" font-size="8" fill="#6b7280">Channel C-01</text>
+  <text x="596" y="396" font-family="Arial,sans-serif" font-size="8" fill="#6b7280">Sediment: 40% | Flow restricted</text>
+
+  <line x1="596" y1="408" x2="744" y2="408" stroke="#f3f4f6"/>
+
+  <text x="596" y="426" font-family="Arial,sans-serif" font-size="9" font-weight="600" fill="#1f2937">AST-WR-001</text>
+  <rect x="700" y="416" width="44" height="14" rx="3" fill="#fef3c7"/>
+  <text x="722" y="427" font-family="Arial,sans-serif" font-size="7" fill="#92400e" text-anchor="middle">MONITOR</text>
+  <text x="596" y="440" font-family="Arial,sans-serif" font-size="8" fill="#6b7280">Weir Structure 01</text>
+  <text x="596" y="452" font-family="Arial,sans-serif" font-size="8" fill="#6b7280">Condition: Fair | Minor corrosion</text>
+
+  <line x1="596" y1="464" x2="744" y2="464" stroke="#f3f4f6"/>
+
+  <text x="596" y="482" font-family="Arial,sans-serif" font-size="9" font-weight="600" fill="#1f2937">AST-CT-002</text>
+  <rect x="700" y="472" width="44" height="14" rx="3" fill="#dcfce7"/>
+  <text x="722" y="483" font-family="Arial,sans-serif" font-size="7" fill="#166534" text-anchor="middle">STABLE</text>
+  <text x="596" y="496" font-family="Arial,sans-serif" font-size="8" fill="#6b7280">Control Structure 02</text>
+  <text x="596" y="508" font-family="Arial,sans-serif" font-size="8" fill="#6b7280">Condition: Good | Operational</text>
+
+  <line x1="596" y1="520" x2="744" y2="520" stroke="#e5e7eb"/>
+  <text x="596" y="540" font-family="Arial,sans-serif" font-size="9" fill="#6b7280">Total Assets:</text><text x="744" y="540" font-family="Arial,sans-serif" font-size="9" fill="#1f2937" text-anchor="end" font-weight="600">5 monitored</text>
+  <text x="596" y="556" font-family="Arial,sans-serif" font-size="9" fill="#6b7280">Action Required:</text><text x="744" y="556" font-family="Arial,sans-serif" font-size="9" fill="#dc2626" text-anchor="end" font-weight="600">1 asset</text>
+  <text x="596" y="572" font-family="Arial,sans-serif" font-size="9" fill="#6b7280">Monitoring:</text><text x="744" y="572" font-family="Arial,sans-serif" font-size="9" fill="#f59e0b" text-anchor="end" font-weight="600">2 assets</text>
+
+  <!-- Condition Trend -->
+  <rect x="40" y="596" width="720" height="110" rx="8" fill="#f9fafb" stroke="#e5e7eb"/>
+  <text x="56" y="622" font-family="Arial,sans-serif" font-size="13" font-weight="600" fill="#1f2937">Condition Trend (4-Quarter Rolling)</text>
+
+  <!-- Simple trend chart -->
+  <line x1="80" y1="680" x2="720" y2="680" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="80" y1="655" x2="720" y2="655" stroke="#f3f4f6" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="80" y1="640" x2="720" y2="640" stroke="#f3f4f6" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="72" y="644" font-family="Arial,sans-serif" font-size="7" fill="#9ca3af" text-anchor="end">Good</text>
+  <text x="72" y="659" font-family="Arial,sans-serif" font-size="7" fill="#9ca3af" text-anchor="end">Fair</text>
+  <text x="72" y="684" font-family="Arial,sans-serif" font-size="7" fill="#9ca3af" text-anchor="end">Poor</text>
+
+  <!-- Trend lines -->
+  <polyline points="160,645 320,648 480,655 640,658" fill="none" stroke="#3b82f6" stroke-width="2"/>
+  <circle cx="160" cy="645" r="3" fill="#3b82f6"/><circle cx="320" cy="648" r="3" fill="#3b82f6"/>
+  <circle cx="480" cy="655" r="3" fill="#3b82f6"/><circle cx="640" cy="658" r="4" fill="#3b82f6" stroke="#fff" stroke-width="1"/>
+
+  <polyline points="160,650 320,655 480,660 640,678" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="4,2"/>
+  <circle cx="160" cy="650" r="3" fill="#dc2626"/><circle cx="320" cy="655" r="3" fill="#dc2626"/>
+  <circle cx="480" cy="660" r="3" fill="#dc2626"/><circle cx="640" cy="678" r="4" fill="#dc2626" stroke="#fff" stroke-width="1"/>
+
+  <text x="160" y="696" font-family="Arial,sans-serif" font-size="8" fill="#6b7280" text-anchor="middle">Q2 2025</text>
+  <text x="320" y="696" font-family="Arial,sans-serif" font-size="8" fill="#6b7280" text-anchor="middle">Q3 2025</text>
+  <text x="480" y="696" font-family="Arial,sans-serif" font-size="8" fill="#6b7280" text-anchor="middle">Q4 2025</text>
+  <text x="640" y="696" font-family="Arial,sans-serif" font-size="8" fill="#1f2937" text-anchor="middle" font-weight="600">Q1 2026</text>
+
+  <rect x="500" y="620" width="10" height="10" rx="1" fill="#3b82f6"/><text x="516" y="629" font-family="Arial,sans-serif" font-size="8" fill="#6b7280">Overall System</text>
+  <rect x="610" y="620" width="10" height="10" rx="1" fill="#dc2626"/><text x="626" y="629" font-family="Arial,sans-serif" font-size="8" fill="#6b7280">Channel C-01</text>
+
+  <!-- Recommendations -->
+  <rect x="40" y="726" width="720" height="100" rx="8" fill="#f9fafb" stroke="#e5e7eb"/>
+  <text x="56" y="752" font-family="Arial,sans-serif" font-size="13" font-weight="600" fill="#1f2937">Recommendations</text>
+
+  <rect x="56" y="764" width="340" height="46" rx="6" fill="#ffffff" stroke="#e5e7eb"/>
+  <rect x="56" y="764" width="4" height="46" rx="2" fill="#dc2626"/>
+  <text x="72" y="780" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#dc2626">PRIORITY: Channel C-01 Clearing</text>
+  <text x="72" y="796" font-family="Arial,sans-serif" font-size="9" fill="#374151">Sediment removal required — 40% flow restriction detected</text>
+
+  <rect x="410" y="764" width="340" height="46" rx="6" fill="#ffffff" stroke="#e5e7eb"/>
+  <rect x="410" y="764" width="4" height="46" rx="2" fill="#f59e0b"/>
+  <text x="426" y="780" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#f59e0b">MONITOR: Pond A Bank Erosion</text>
+  <text x="426" y="796" font-family="Arial,sans-serif" font-size="9" fill="#374151">NW bank showing 6" recession since Q3 2025 — stabilize if trend continues</text>
+
+  <!-- Summary Metrics -->
+  <rect x="40" y="846" width="720" height="80" rx="8" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <text x="56" y="874" font-family="Arial,sans-serif" font-size="11" font-weight="600" fill="#166534">OPERATIONAL SUMMARY</text>
+
+  <g transform="translate(56,888)">
+    <text font-family="Arial,sans-serif" font-size="9" fill="#166534">Assets Monitored</text>
+    <text x="0" y="16" font-family="Arial,sans-serif" font-size="14" font-weight="bold" fill="#166534">5</text>
+  </g>
+  <g transform="translate(220,888)">
+    <text font-family="Arial,sans-serif" font-size="9" fill="#166534">Action Required</text>
+    <text x="0" y="16" font-family="Arial,sans-serif" font-size="14" font-weight="bold" fill="#dc2626">1</text>
+  </g>
+  <g transform="translate(400,888)">
+    <text font-family="Arial,sans-serif" font-size="9" fill="#166534">System Health</text>
+    <text x="0" y="16" font-family="Arial,sans-serif" font-size="14" font-weight="bold" fill="#f59e0b">Fair (6.8/10)</text>
+  </g>
+  <g transform="translate(600,888)">
+    <text font-family="Arial,sans-serif" font-size="9" fill="#166534">Est. Remediation</text>
+    <text x="0" y="16" font-family="Arial,sans-serif" font-size="14" font-weight="bold" fill="#166534">$12–18K</text>
+  </g>
+
+  <!-- Footer -->
+  <line x1="40" y1="945" x2="760" y2="945" stroke="#e5e7eb"/>
+  <text x="40" y="965" font-family="Arial,sans-serif" font-size="8" fill="#9ca3af">© GroundTruth Systems | Confidential Client Deliverable | Do Not Distribute</text>
+  <text x="760" y="965" font-family="Arial,sans-serif" font-size="8" fill="#9ca3af" text-anchor="end">Page 1 of 5</text>
+
+  <text x="400" y="1060" font-family="Arial,sans-serif" font-size="10" fill="#d1d5db" text-anchor="middle" letter-spacing="4">GROUNDTRUTH SYSTEMS — TRUTH, DELIVERED WITH PRECISION</text>
+</svg>

@@ -1,0 +1,35 @@
+name: Deploy DEV
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: groundtruth-dev
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  deploy:
+    environment: development
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run validate
+      - uses: aws-actions/configure-aws-credentials@v6.2.4
+        with:
+          role-to-assume: ${{ vars.AWS_DEV_DEPLOY_ROLE_ARN }}
+          aws-region: us-east-1
+          role-session-name: groundtruth-dev-${{ github.run_id }}
+      - run: npx cdk deploy --all --require-approval never -c environment=dev --outputs-file cdk-outputs.json
+      - run: node scripts/smoke-test.mjs "$(node scripts/cloudfront-url.mjs cdk-outputs.json)"

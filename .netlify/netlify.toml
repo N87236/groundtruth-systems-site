@@ -7,9 +7,9 @@ redirects = []
 [functions."*"]
 
 [build]
-publish = "/home/nate/.openclaw/workspace/groundtruth-site"
-publishOrigin = "default"
-base = "/home/nate/.openclaw/workspace/groundtruth-site"
+# Retained only for rollback during migration. GitHub/CDK is the target deployment path.
+publish = "site"
+publishOrigin = "config"
 
 [build.environment]
 
