@@ -37,6 +37,7 @@ jobs:
           role-to-assume: arn:aws:iam::025329968834:role/cdk-hnb659fds-deploy-role-025329968834-us-east-1
           aws-region: us-east-1
           role-chaining: true
+          role-skip-session-tagging: true
           role-session-name: groundtruth-dev-recovery-${{ github.run_id }}
       - name: Remove failed initial DEV stack only
         shell: bash
