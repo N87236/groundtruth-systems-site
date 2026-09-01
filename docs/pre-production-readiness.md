@@ -43,7 +43,7 @@ Current planning estimate: DEV is approximately USD 5-15/month at low traffic (m
 
 ## DR rehearsal
 
-The tested recovery sequence is `git clone`, `npm ci`, authenticated AWS session, `cdk bootstrap` (one-time per account/region), then CDK synth/deploy. GitHub OIDC deployment roles are live and no Netlify/OpenClaw path is referenced by AWS infrastructure. A clean-machine rehearsal should be recorded as a separate operator check before production approval.
+The clean-machine rehearsal passed on 2026-09-01 from a fresh shallow clone of `migration/aws-platform`: `npm ci`, all tests, site validation, and strict CDK synthesis completed successfully. The tested recovery sequence is `git clone`, `npm ci`, Node.js 22+, authenticated AWS session, `cdk bootstrap` (one-time per account/region), then CDK synth/deploy. GitHub OIDC deployment roles are live and no Netlify/OpenClaw path is referenced by AWS infrastructure.
 
 ## Production cutover, prepared only
 
