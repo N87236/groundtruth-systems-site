@@ -39,6 +39,8 @@ CloudFront already emits HSTS, X-Content-Type-Options, Referrer-Policy, Permissi
 
 CloudWatch alarms cover CloudFront 4xx/5xx, API Gateway 5xx, Lambda error rate, DynamoDB throttles, and a log metric for lead persistence/notification/configuration failures. The dashboard is `gts-dev-operations`; the DEV budget is USD 15/month with actual and forecast notifications to Nate. Resource tags are applied by CDK: Project, Environment, ManagedBy, Application, and Owner.
 
+Current planning estimate: DEV is approximately USD 5-15/month at low traffic (mostly CloudFront transfer, logs, and the hosted operational baseline); PROD is budgeted at USD 50/month and should remain below that at low-to-medium marketing traffic. Actual pricing depends on transfer, requests, CloudTrail retention, and SES volume; the budget alarm is the authoritative guardrail.
+
 ## DR rehearsal
 
 The tested recovery sequence is `git clone`, `npm ci`, authenticated AWS session, `cdk bootstrap` (one-time per account/region), then CDK synth/deploy. GitHub OIDC deployment roles are live and no Netlify/OpenClaw path is referenced by AWS infrastructure. A clean-machine rehearsal should be recorded as a separate operator check before production approval.
@@ -55,4 +57,3 @@ The tested recovery sequence is `git clone`, `npm ci`, authenticated AWS session
 ## Rollback
 
 Stop deployment, restore the recorded Netlify apex and `www` targets, verify HTTPS and all critical interactions, preserve AWS logs and the failed commit, and do not delete AWS or Netlify resources during incident response.
-
