@@ -186,7 +186,7 @@ export class GroundTruthWebsiteStack extends Stack {
       ],
       distribution,
       distributionPaths: ['/', '/index.html'],
-      prune: true,
+      prune: false,
       retainOnDelete: production,
       cacheControl: [s3deploy.CacheControl.noCache()],
     });
