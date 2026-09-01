@@ -18,7 +18,7 @@ export function environmentConfig(environment: GroundTruthEnvironment): GroundTr
     domainName: 'groundtruth-systems.com',
     canonicalHost: production ? 'groundtruth-systems.com' : undefined,
     alternateHosts: production ? ['www.groundtruth-systems.com'] : [],
-    notificationEmail: 'nate@poole-holdings.com',
+    notificationEmail: 'admin@poole-holdings.com',
     senderEmail: 'leads@groundtruth-systems.com',
     budgetUsd: production ? 50 : 15,
     tags: {

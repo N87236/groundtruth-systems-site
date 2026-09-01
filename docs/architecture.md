@@ -31,7 +31,7 @@ Website
    DynamoDB     SES
 ```
 
-The Lambda validates and normalizes input, rejects a populated honeypot, creates the lead record with status `NEW`, and requests an SES notification to `nate@poole-holdings.com`. It emits structured logs without logging the submitted message or other unnecessary personal data.
+The Lambda validates and normalizes input, rejects a populated honeypot, creates the lead record with status `NEW`, and requests an SES notification to `admin@poole-holdings.com`. It emits structured logs without logging the submitted message or other unnecessary personal data. The public contact address remains `nate@poole-holdings.com`.
 
 ## Environments
 
@@ -54,4 +54,3 @@ The DNS stack is intentionally separable so preview hosting can be deployed with
 The marketing site remains a bounded workload. Future portal, mission, spatial storage, processing, and AI stacks should integrate through versioned APIs and events rather than sharing the website bucket or lead table.
 
 Planned data namespaces are `raw-data`, `processed-data`, `reports`, and `models`, organized conceptually as customer/site/mission. No processing fleet, database cluster, customer identity system, or GPU capacity is part of this migration.
-

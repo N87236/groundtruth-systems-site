@@ -29,7 +29,7 @@ All 8 local DEV assets returned HTTP 200: favicon SVG, hero JPEG, five SVG repor
 
 The deployed path is Browser -> CloudFront `/api/*` -> API Gateway -> Lambda -> DynamoDB and SES. Server-side schema validation, field limits, JSON parsing, honeypot rejection, API Gateway throttling (5 requests/second, burst 10), and structured failure logging are present. The frontend has distinct success and failure text paths.
 
-SES is **BLOCKED** pending verification of `leads@groundtruth-systems.com` and `nate@poole-holdings.com`, both requested on 2026-09-01. The account is in the SES sandbox with a 200-message daily quota. After both links are confirmed, submit one controlled test lead, verify its `leadId` and `notificationStatus=SENT` in `gts-leads-dev`, and verify delivery in Nate's mailbox.
+SES is **BLOCKED** pending verification of `leads@groundtruth-systems.com` and `admin@poole-holdings.com`. The account is in the SES sandbox with a 200-message daily quota. After both links are confirmed, submit one controlled test lead, verify its `leadId` and `notificationStatus=SENT` in `gts-leads-dev`, and verify delivery in the admin mailbox.
 
 ## Security and caching
 
