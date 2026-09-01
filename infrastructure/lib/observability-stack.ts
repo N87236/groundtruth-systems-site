@@ -181,7 +181,7 @@ export class GroundTruthObservabilityStack extends Stack {
 
     new budgets.CfnBudget(this, 'MonthlyBudget', {
       budget: {
-        budgetName: `GroundTruth-${props.config.environment}-Monthly`,
+        budgetName: `GroundTruth-${props.config.environment}-Monthly-v2`,
         budgetType: 'COST',
         timeUnit: 'MONTHLY',
         budgetLimit: { amount: props.config.budgetUsd, unit: 'USD' },
