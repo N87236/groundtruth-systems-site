@@ -62,7 +62,6 @@ export class GroundTruthLeadIntakeStack extends Stack {
       memorySize: 256,
       logGroup,
       tracing: lambda.Tracing.ACTIVE,
-      reservedConcurrentExecutions: 10,
       environment: {
         LEADS_TABLE_NAME: table.tableName,
         NOTIFICATION_EMAIL: props.config.notificationEmail,

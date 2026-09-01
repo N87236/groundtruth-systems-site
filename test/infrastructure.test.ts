@@ -54,7 +54,7 @@ test('lead intake is throttled and stores leads in encrypted DynamoDB', () => {
   });
   template.hasResourceProperties('AWS::Lambda::Function', {
     Runtime: 'nodejs22.x',
-    ReservedConcurrentExecutions: 10,
+    ReservedConcurrentExecutions: Match.absent(),
     TracingConfig: { Mode: 'Active' },
   });
 });
