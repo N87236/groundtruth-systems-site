@@ -5,6 +5,7 @@ const checks = [
   ['/', 'text/html'],
   ['/assets/images/hero.jpg', 'image/jpeg'],
   ['/assets/reports/dragon-fruit-farm-intelligence-report.png', 'image/png'],
+  ['/version.json', 'application/json'],
 ];
 for (const [path, contentType] of checks) {
   const response = await fetch(`${baseUrl}${path}`, { redirect: 'error' });

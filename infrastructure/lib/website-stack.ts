@@ -90,6 +90,12 @@ export class GroundTruthWebsiteStack extends Stack {
       customHeadersBehavior: {
         customHeaders: [
           {
+            header: 'Content-Security-Policy-Report-Only',
+            value:
+              "default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; connect-src 'self' https://*.execute-api.us-east-1.amazonaws.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+            override: true,
+          },
+          {
             header: 'Permissions-Policy',
             value: 'camera=(), geolocation=(), microphone=(), payment=(), usb=()',
             override: true,

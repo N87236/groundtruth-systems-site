@@ -8,6 +8,7 @@ import {
   aws_cloudfront as cloudfront,
   aws_cloudtrail as cloudtrail,
   aws_cloudwatch as cloudwatch,
+  aws_logs as logs,
   aws_cloudwatch_actions as cloudwatchActions,
   aws_dynamodb as dynamodb,
   aws_lambda as lambda,
@@ -106,7 +107,24 @@ export class GroundTruthObservabilityStack extends Stack {
       treatMissingData: cloudwatch.TreatMissingData.NOT_BREACHING,
     });
 
-    const alarms = [lambdaErrorRate, apiErrors, cloudFront5xx, cloudFront4xx, leadThrottles];
+    const leadProcessingFailures = new logs.MetricFilter(this, 'LeadProcessingFailures', {
+      logGroup: logs.LogGroup.fromLogGroupName(this, 'LeadLogGroup', `/gts/${props.config.environment}/lead-intake`),
+      metricNamespace: 'GroundTruth/LeadIntake',
+      metricName: 'ProcessingFailures',
+      filterPattern: logs.FilterPattern.anyTerm('lead_persistence_failed', 'lead_notification_failed', 'configuration_error'),
+      metricValue: '1',
+    }).metric({ period: Duration.minutes(1), statistic: 'Sum' });
+    const leadFailures = new cloudwatch.Alarm(this, 'LeadProcessingFailuresAlarm', {
+      alarmName: `gts-${props.config.environment}-lead-processing-failures`,
+      metric: leadProcessingFailures,
+      threshold: 1,
+      evaluationPeriods: 3,
+      datapointsToAlarm: 2,
+      comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_OR_EQUAL_TO_THRESHOLD,
+      treatMissingData: cloudwatch.TreatMissingData.NOT_BREACHING,
+    });
+
+    const alarms = [lambdaErrorRate, apiErrors, cloudFront5xx, cloudFront4xx, leadThrottles, leadFailures];
     const action = new cloudwatchActions.SnsAction(topic);
     alarms.forEach((alarm) => alarm.addAlarmAction(action));
 

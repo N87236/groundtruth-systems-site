@@ -3,5 +3,6 @@ node_modules/
 dist/
 build/
 cdk.out/
+site/version.json
 .vscode/
 .env
