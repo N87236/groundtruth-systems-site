@@ -10,6 +10,7 @@
     "build": "tsc --noEmit",
     "test": "jest --runInBand",
     "synth": "cdk synth --strict",
+    "synth:foundation": "cdk synth --strict --app \"npx tsx infrastructure/bin/deployment-foundation-app.ts\"",
     "validate:site": "node scripts/validate-site.mjs",
     "validate": "npm run build && npm run test && npm run validate:site && npm run synth"
   },

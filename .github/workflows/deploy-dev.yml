@@ -2,7 +2,7 @@ name: Deploy DEV
 
 on:
   push:
-    branches: [main]
+    branches: [main, migration/aws-platform]
   workflow_dispatch:
 
 concurrency:
@@ -28,7 +28,7 @@ jobs:
       - run: npm run validate
       - uses: aws-actions/configure-aws-credentials@v6.2.4
         with:
-          role-to-assume: ${{ vars.AWS_DEV_DEPLOY_ROLE_ARN }}
+          role-to-assume: arn:aws:iam::025329968834:role/GroundTruthDevDeployRole
           aws-region: us-east-1
           role-session-name: groundtruth-dev-${{ github.run_id }}
       - run: npx cdk deploy --all --require-approval never -c environment=dev --outputs-file cdk-outputs.json

@@ -4,6 +4,7 @@ import {
   RemovalPolicy,
   Stack,
   StackProps,
+  Token,
   Validations,
   aws_certificatemanager as acm,
   aws_cloudfront as cloudfront,
@@ -267,6 +268,12 @@ export class GroundTruthWebsiteStack extends Stack {
           'Pruning requires deletion beneath only the target site bucket.',
         'AwsSolutions-IAM5[Resource::arn:<AWS::Partition>:s3:::cdk-hnb659fds-assets-<AWS::AccountId>-<AWS::Region>/*]':
           'Read access is restricted to objects in the CDK bootstrap asset bucket.',
+        ...(!Token.isUnresolved(this.account) && !Token.isUnresolved(this.region)
+          ? {
+              [`AwsSolutions-IAM5[Resource::arn:<AWS::Partition>:s3:::cdk-hnb659fds-assets-${this.account}-${this.region}/*]`]:
+                'Read access is restricted to objects in the environment-specific CDK bootstrap asset bucket.',
+            }
+          : {}),
         'AwsSolutions-IAM5[Resource::<SiteBucket397A1860.Arn>/*]':
           'Write and prune access is restricted to objects in the GroundTruth site bucket.',
       });

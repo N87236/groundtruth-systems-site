@@ -1,4 +1,4 @@
-import { CfnOutput, Stack, StackProps, aws_iam as iam } from 'aws-cdk-lib';
+import { CfnOutput, Duration, Stack, StackProps, aws_iam as iam } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 
 export interface DeploymentRolesStackProps extends StackProps {
@@ -16,10 +16,16 @@ export class GroundTruthDeploymentRolesStack extends Stack {
     });
     const repository = `${props.githubOwner}/${props.githubRepository}`;
 
-    const createRole = (roleId: string, roleName: string, subject: string): iam.Role => {
+    const createRole = (
+      roleId: string,
+      roleName: string,
+      subject: string | string[],
+    ): iam.Role => {
       const principal = new iam.OpenIdConnectPrincipal(provider, {
         StringEquals: {
           'token.actions.githubusercontent.com:aud': 'sts.amazonaws.com',
+        },
+        StringLike: {
           'token.actions.githubusercontent.com:sub': subject,
         },
       });
@@ -27,7 +33,7 @@ export class GroundTruthDeploymentRolesStack extends Stack {
         roleName,
         assumedBy: principal,
         description: `GitHub OIDC entry role for ${repository}`,
-        maxSessionDuration: cdkDurationHours(1),
+        maxSessionDuration: Duration.hours(1),
       });
       role.addToPolicy(
         new iam.PolicyStatement({
@@ -47,7 +53,10 @@ export class GroundTruthDeploymentRolesStack extends Stack {
     const devRole = createRole(
       'DevDeployRole',
       'GroundTruthDevDeployRole',
-      `repo:${repository}:ref:refs/heads/main`,
+      [
+        `repo:${repository}:ref:refs/heads/main`,
+        `repo:${repository}:ref:refs/heads/migration/aws-platform`,
+      ],
     );
     const prodRole = createRole(
       'ProdDeployRole',
@@ -58,9 +67,4 @@ export class GroundTruthDeploymentRolesStack extends Stack {
     new CfnOutput(this, 'DevDeployRoleArn', { value: devRole.roleArn });
     new CfnOutput(this, 'ProdDeployRoleArn', { value: prodRole.roleArn });
   }
-}
-
-import { Duration } from 'aws-cdk-lib';
-function cdkDurationHours(hours: number): Duration {
-  return Duration.hours(hours);
 }
